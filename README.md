@@ -82,7 +82,7 @@ But, if pressed, how would you **prove** it?
 
 * Create a series of scatter plots to showcase the following relationships:
 
-  * **Temperature (F) vs. Latitude
+  * ** Temperature (F) vs. Latitude
   
   * **Humidity (%) vs. Latitude
   
