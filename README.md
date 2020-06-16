@@ -104,21 +104,51 @@ But, if pressed, how would you **prove** it?
 
   * **Northern Hemisphere - Temperature (F) vs. Latitude**
   
+    ![Summary](Images/plot5.png)
+  
   * **Southern Hemisphere - Temperature (F) vs. Latitude**
+  
+    ![Summary](Images/plot6.png)
+    
+    ```diff
+    
+    * Temperature depends on the distance from equator. 
+      * Please observe the p value of the linear regression estimator << 0. This means that slope is NOT zero
+      * In both hemispheres, a high correlation between latitude and temperature
+      * We can observe a pattern in scatter plot also
+    * As we move towards equator, temperature increases in both sides of the hemisphere
+    * From the data, it looks like, temperatures at cities equidistant from equator in both the sides might not be same.
+        * For instance, 
+            * At latitude +30, temperature is approximated as -0.57*30+90.47=73.37F
+            * At latitude -30, temperature is approximated as 0.65*-30+78.31 = 58.81F. 
+        * This is because, most of the northern hemisphere is land and most of the southern hemisphere is ocean and ocean is likely to be colder
+    
+    ```
   
   * **Northern Hemisphere - Humidity (%) vs. Latitude**
   
+    ![Summary](Images/plot7.png)
+  
   * **Southern Hemisphere - Humidity (%) vs. Latitude**
+  
+    ![Summary](Images/plot8.png)
   
   * **Northern Hemisphere - Cloudiness (%) vs. Latitude**
   
+    ![Summary](Images/plot9.png)
+  
   * **Southern Hemisphere - Cloudiness (%) vs. Latitude**
   
+    ![Summary](Images/plot10.png)
+  
   * **Northern Hemisphere - Wind Speed (mph) vs. Latitude**
+    
+    ![Summary](Images/plot11.png)
   
   * **Southern Hemisphere - Wind Speed (mph) vs. Latitude**
+  
+    ![Summary](Images/plot12.png)
 
-After each pair of plots explain what the linear regression is modeling such as any relationships you notice and any other analysis you may have.
 
 **Optional** You will be creating multiple linear regression plots. To optimize your code, write a function that creates the linear regression plots.
 
