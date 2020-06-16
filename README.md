@@ -33,25 +33,19 @@ But, if pressed, how would you **prove** it?
   
  * Find the closest city for each of the representational latitude and longitude values using python [citipy](https://pypi.python.org/pypi/citipy) library
  
-  ``` python
-  
-  # Incorporate citipy to determine city based on latitude and longitude
-  from citipy import citipy
-  
-  cities = []
-  
-  lat_lngs = zip(lats, lngs)
+    ``` python
+    # Incorporate citipy to determine city based on latitude and longitude
+    from citipy import citipy
+    cities = []
+    lat_lngs = zip(lats, lngs)
 
-  # Identify nearest city for each lat, lng combination
-  for lat_lng in lat_lngs:
-      city = citipy.nearest_city(lat_lng[0], lat_lng[1]).city_name
-
-      # If the city is unique, then add it to a our cities list
-      if city not in cities:
-          cities.append(city)
-
-  
-  ```
+    # Identify nearest city for each lat, lng combination
+    for lat_lng in lat_lngs:
+        city = citipy.nearest_city(lat_lng[0], lat_lng[1]).city_name
+        # If the city is unique, then add it to a our cities list
+        if city not in cities:
+            cities.append(city)
+    ```
   Note:- Some latitude, longitude combination will not have nearest city (eg:- in the ocean). Hence, a larger set of lat,long   was kept initially to get more than 500 cities
  
  
