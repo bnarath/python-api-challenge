@@ -84,24 +84,39 @@ But, if pressed, how would you **prove** it?
 
   * **Temperature (F) vs. Latitude**
   
+    ![Summary](Images/plot1.png)
+  
   * **Humidity (%) vs. Latitude**
+  
+    ![Summary](Images/plot2.png)
   
   * **Cloudiness (%) vs. Latitude**
   
+    ![Summary](Images/plot3.png)
+  
   * **Wind Speed (mph) vs. Latitude**
   
+    ![Summary](Images/plot4.png)
+  
   
 
-Then run linear regression on each relationship, only this time separating them into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude):
+* Run linear regression on each relationship, only this time separating them into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude):
 
-* Northern Hemisphere - Temperature (F) vs. Latitude
-* Southern Hemisphere - Temperature (F) vs. Latitude
-* Northern Hemisphere - Humidity (%) vs. Latitude
-* Southern Hemisphere - Humidity (%) vs. Latitude
-* Northern Hemisphere - Cloudiness (%) vs. Latitude
-* Southern Hemisphere - Cloudiness (%) vs. Latitude
-* Northern Hemisphere - Wind Speed (mph) vs. Latitude
-* Southern Hemisphere - Wind Speed (mph) vs. Latitude
+  * **Northern Hemisphere - Temperature (F) vs. Latitude**
+  
+  * **Southern Hemisphere - Temperature (F) vs. Latitude**
+  
+  * **Northern Hemisphere - Humidity (%) vs. Latitude**
+  
+  * **Southern Hemisphere - Humidity (%) vs. Latitude**
+  
+  * **Northern Hemisphere - Cloudiness (%) vs. Latitude**
+  
+  * **Southern Hemisphere - Cloudiness (%) vs. Latitude**
+  
+  * **Northern Hemisphere - Wind Speed (mph) vs. Latitude**
+  
+  * **Southern Hemisphere - Wind Speed (mph) vs. Latitude**
 
 After each pair of plots explain what the linear regression is modeling such as any relationships you notice and any other analysis you may have.
 
