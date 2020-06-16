@@ -99,6 +99,62 @@ But, if pressed, how would you **prove** it?
     ![Summary](Images/plot4.png)
   
   
+* Write a function that creates the linear regression plots
+
+  ``` python
+    def linregress_plots(DF, xl, yl, xlabel='Latitude', ylabel='', title='', figname='plot.png'):
+
+    m, c, r, p, _ = linregress(DF[xl], DF[yl])
+    print(f"The r-squared is: {r**2}")
+    
+
+    #Create a new figure
+    _=plt.figure()
+
+    #Scatter plot
+    ax = DF.plot(x=xl, 
+              y=yl,
+              kind='scatter',
+              s=30,
+              title=title,
+              ylim = (min(DF[yl])-5, max(DF[yl]+15))
+              )            
+
+    _=ax.set_xlabel(xlabel)
+    _=ax.set_ylabel(ylabel)
+
+    #Regression Line
+    y=m*DF[xl] + c
+    _=ax.plot(DF[xl], y, 'r-')
+    
+    
+    pos=((0.15, 0.2) if m<=-0.4 else ((0.15, 0.75) if m>0.4 else (0.5, 0.80))) #Annotate position
+    
+    #A way to dynamically finds the number of decimal positions if there is avery small value Eg:- 0.000000067
+    #We don't want to denote it as 0.00
+    val = m*100
+    digits = 2
+    while int(val)==0:
+        val*=10
+        digits+=1
+    
+    s = "{:."+f"{digits}"+"f}"
+    format_string = "y = "+s+"x + {:.2f}"
+    linear_eqn = format_string.format(m, c)
+    _=ax.annotate(linear_eqn,
+            xy=pos, xycoords='figure fraction', fontsize=15, color='r')
+
+    plt.savefig(f"../Images/{figname}")
+    _=plt.show()
+    
+    return(r, p)
+
+    #This function returns the r value, and p value
+    #r value: Pearson Correlation Coefficient
+    #p value: is a measure of the significance of the gradient. If p value is < 0.01 (Significance level),
+    #it means that, we cannot independent variable affects dependant variable
+
+  ```
 
 * Run linear regression on each relationship, only this time separating them into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude):
 
@@ -132,6 +188,19 @@ But, if pressed, how would you **prove** it?
   * **Southern Hemisphere - Humidity (%) vs. Latitude**
   
     ![Summary](Images/plot8.png)
+    
+    ```diff
+    
+    - Humidity(%) doesn't correlate with the distance from equator. 
+      * Please observe that p value of the linear regression estimator >> 0 (>significance level(typically 0.05)). This means that WE CANNOT say that slope is NOT zero.
+      * In both hemispheres, a near to ZERO correlation between latitude and humidity.
+      * No pattern in scatter plot.
+    - Humidity is centered around different values in both hemispheres.
+        * In northern hemisphere, most of the cities are having humidity around 67%.
+        * In southern hemisphere, most of the cities are having humidity around 73%.
+    
+    ```
+    
   
   * **Northern Hemisphere - Cloudiness (%) vs. Latitude**
   
@@ -140,6 +209,18 @@ But, if pressed, how would you **prove** it?
   * **Southern Hemisphere - Cloudiness (%) vs. Latitude**
   
     ![Summary](Images/plot10.png)
+    
+    ```diff
+    
+    - Cloudiness(%) doesn't correlate with the distance from equator. 
+      * Please observe that p value of the linear regression estimator > significance level (typically 0.05). This means that WE CANNOT say that slope is NOT zero.
+      * In both hemispheres, a weak correlation between latitude and cloudiness.
+      * No pattern in scatter plot.
+    - Cloudiness is centered around different values in both hemispheres.
+        * Northern hemisphere has average cloudiness around 53%.
+        * Southern hemisphere has average cloudiness around 46%.
+    
+    ```
   
   * **Northern Hemisphere - Wind Speed (mph) vs. Latitude**
     
@@ -148,9 +229,20 @@ But, if pressed, how would you **prove** it?
   * **Southern Hemisphere - Wind Speed (mph) vs. Latitude**
   
     ![Summary](Images/plot12.png)
+    
+    ```diff
+    
+    - Windspeed doesn't correlate with the distance from equator. 
+      * Please observe that p value of the linear regression estimator > significance level (typically 0.05).
+          This means that WE CANNOT say that slope is NOT zero.
+      * In both hemispheres, a weak correlation between latitude and Windspeed.
+      * No pattern in scatter plot.
+    - Windspeed is centered around different but close values in both hemispheres.
+        * Northern hemisphere has average windspeed around 8.6 mph.
+        * Southern hemisphere has average windspeed around 7.9 mph.
+    
+    ```
 
-
-**Optional** You will be creating multiple linear regression plots. To optimize your code, write a function that creates the linear regression plots.
 
 Your final notebook must:
 
