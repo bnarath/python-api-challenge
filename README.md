@@ -249,7 +249,7 @@ But, if pressed, how would you **prove** it?
 
 * Create a heat map that displays the humidity for every city from the part I of the homework.
 
-  [heatmap](Images/heatmap.png)
+  ![heatmap](Images/heatmap.png)
   
 
 * Narrow down the DataFrame to find your ideal weather condition. For example:
