@@ -252,6 +252,8 @@ But, if pressed, how would you **prove** it?
   ![heatmap](Images/heatmap.png)
   
 
+### Specify the ideal weather conditions
+
 * Narrow down the DataFrame to find your ideal weather condition. For example:
 
   * A max temperature lower than 80 degrees but higher than 70.
@@ -260,9 +262,31 @@ But, if pressed, how would you **prove** it?
 
   * Zero cloudiness.
 
-  * Drop any rows that don't contain all three conditions. You want to be sure the weather is ideal.
+  Drop any rows that don't contain all three conditions. You want to be sure the weather is ideal.
 
-  * **Note:** Feel free to adjust to your specifications but be sure to limit the number of rows returned by your API requests to a reasonable number.
+  ``` python
+  
+    DF_Hotels = DF.drop(DF[~((DF['Max Temp']<80.0) & (DF['Max Temp']>70.0) & (DF['Wind Speed']<10.0) & (DF['Cloudiness']==0))].index)
+
+    DF_Hotels.info()
+    
+    <class 'pandas.core.frame.DataFrame'>
+    Int64Index: 14 entries, 25 to 536
+    Data columns (total 8 columns):
+     #   Column      Non-Null Count  Dtype  
+    ---  ------      --------------  -----  
+     0   City        14 non-null     object 
+     1   Country     14 non-null     object 
+     2   Lat         14 non-null     float64
+     3   Lng         14 non-null     float64
+     4   Max Temp    14 non-null     float64
+     5   Humidity    14 non-null     float64
+     6   Cloudiness  14 non-null     float64
+     7   Wind Speed  14 non-null     float64
+    dtypes: float64(6), object(2)
+    memory usage: 1008.0+ bytes
+  
+  ```
 
 * Using Google Places API to find the first hotel for each city located within 5000 meters of your coordinates.
 
