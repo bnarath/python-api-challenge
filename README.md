@@ -112,15 +112,15 @@ But, if pressed, how would you **prove** it?
     
     ```diff
     
-    * Temperature depends on the distance from equator. 
+    + Temperature depends on the distance from equator. 
       * Please observe the p value of the linear regression estimator << 0. This means that slope is NOT zero
       * In both hemispheres, a high correlation between latitude and temperature
       * We can observe a pattern in scatter plot also
-    * As we move towards equator, temperature increases in both sides of the hemisphere
-    * From the data, it looks like, temperatures at cities equidistant from equator in both the sides might not be same.
+    + As we move towards equator, temperature increases in both sides of the hemisphere
+    + From the data, it looks like, temperatures at cities equidistant from equator in both the sides might not be same.
         * For instance, 
-            * At latitude +30, temperature is approximated as -0.57*30+90.47=73.37F
-            * At latitude -30, temperature is approximated as 0.65*-30+78.31 = 58.81F. 
+            . At latitude +30, temperature is approximated as -0.57*30+90.47=73.37F
+            . At latitude -30, temperature is approximated as 0.65*-30+78.31 = 58.81F. 
         * This is because, most of the northern hemisphere is land and most of the southern hemisphere is ocean and ocean is likely to be colder
     
     ```
