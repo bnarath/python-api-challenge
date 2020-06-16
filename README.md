@@ -98,7 +98,8 @@ But, if pressed, how would you **prove** it?
   
     ![Summary](Images/plot4.png)
   
-  
+ 
+### Regression Analysis
 * Write a function that creates the linear regression plots
 
   ``` python
@@ -243,15 +244,13 @@ But, if pressed, how would you **prove** it?
     
     ```
 
-### Part II - VacationPy
+### Heatmap
 
-Now let's use your skills in working with weather data to plan future vacations. Use jupyter-gmaps and the Google Places API for this part of the assignment.
-
-* **Note:** if you having trouble displaying the maps try running `jupyter nbextension enable --py gmaps` in your environment and retry.
 
 * Create a heat map that displays the humidity for every city from the part I of the homework.
 
-  ![heatmap](Images/heatmap.png)
+  [heatmap](Images/heatmap.png)
+  
 
 * Narrow down the DataFrame to find your ideal weather condition. For example:
 
