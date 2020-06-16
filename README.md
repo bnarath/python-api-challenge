@@ -248,7 +248,7 @@ But, if pressed, how would you **prove** it?
 
 
 * Create a heat map that displays the humidity for every city from the part I of the homework.
-  Play with the map widget [here](Images/heatmap.html)
+  
   ![heatmap](Images/heatmap.png)
   
 
