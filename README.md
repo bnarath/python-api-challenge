@@ -18,7 +18,7 @@ But, if pressed, how would you **prove** it?
 * Latitude values are measured relative to the equator and range from -90° at the South Pole to +90° at the North Pole. Longitude values are measured relative to the prime meridian. They range from -180° when traveling west to 180° when traveling east.Please checkout [geographic coordinate system](http://desktop.arcgis.com/en/arcmap/10.3/guide-books/map-projections/about-geographic-coordinate-systems.htm) for further details.
 
 * Generate a set of representation latitude and longitude values
-  ``` diff python
+  ``` python
   # Range of latitudes and longitudes
   lat_range = (-90, 90)
   lng_range = (-180, 180)
