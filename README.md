@@ -248,7 +248,7 @@ But, if pressed, how would you **prove** it?
 
 
 * Create a heat map that displays the humidity for every city from the part I of the homework.
-
+  Play with the map widget [here](Images/heatmap.html)
   ![heatmap](Images/heatmap.png)
   
 
@@ -267,8 +267,10 @@ But, if pressed, how would you **prove** it?
 * Using Google Places API to find the first hotel for each city located within 5000 meters of your coordinates.
 
 * Plot the hotels on top of the humidity heatmap with each pin containing the **Hotel Name**, **City**, and **Country**.
-
+   
+   
   ![hotel map](Images/hotel_map.png)
+  
 
 As final considerations:
 
