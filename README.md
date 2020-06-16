@@ -10,6 +10,9 @@ But, if pressed, how would you **prove** it?
 
 ![Equator](Images/equatorsign.png)
 
+## CodeBase
+
+Please refer [WeatherPy.ipynb](CodeBase/WeatherPy.ipynb) and [VacationPy.ipynb](CodeBase/VacationPy.ipynb) for the detailed implementation.
 
 ## Steps
 
