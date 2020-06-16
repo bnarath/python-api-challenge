@@ -48,50 +48,49 @@ But, if pressed, how would you **prove** it?
     ```
     Note:- Some latitude, longitude combination will not have nearest city (eg:- in the ocean). Hence, a larger set of lat,long   was kept initially to get more than 500 cities
  
- * Next, we perform weather check on each city in the list,  using a series of successive API calls to [OpenWeatherMap API](https://openweathermap.org/api) and extract ['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']. This extracted data is kept in a DataFrame
+ * Next, we perform weather check on each city in the list,  using a series of successive API calls to [OpenWeatherMap API](https://openweathermap.org/api) and extract ['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']. This extracted data is kept in a DataFrame.
  
    ``` python
-       #Create a placeholder DF for the extracted data from API calls
-      weather_DF = pd.DataFrame(columns=['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']) 
+     #Create a placeholder DF for the extracted data from API calls
+    weather_DF = pd.DataFrame(columns=['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']) 
 
-      #Data to get extracted
-      summary = ['name', 'coord.lat', 'coord.lon', 'main.temp_max', 'main.humidity', 'clouds.all', 'wind.speed', 'sys.country', 'dt']             
+    #Data to get extracted
+    summary = ['name', 'coord.lat', 'coord.lon', 'main.temp_max', 'main.humidity', 'clouds.all', 'wind.speed', 'sys.country', 'dt']             
 
-      #Parms to pass to the API call
-      params = {'units': 'imperial',
-                'appid' : weather_api_key}
+    #Parms to pass to the API call
+    params = {'units': 'imperial',
+              'appid' : weather_api_key}
 
-      #Iteratively call openweathermap api using python wrapper
-      print("Beginning Data Retrieval\n\
-      -----------------------------")
-      count=0 #Successful queries
-      for index, city in enumerate(cities):
-          try:
-              result = owm.get_current(city,**params)
-              weather_DF.loc[count] = result(*summary)
-              print(f"Processed Record {index} | {city}")
-              count+=1
-          except:
-              print(f"Record {index}: City {city} not found. Skipping...") 
-          time.sleep(1) #1 sec delay between API calls
-      print("-----------------------------\n\
-      Data Retrieval Complete\n\
-      -----------------------------")         
+    #Iteratively call openweathermap api using python wrapper
+    print("Beginning Data Retrieval\n\
+    -----------------------------")
+    count=0 #Successful queries
+    for index, city in enumerate(cities):
+        try:
+            result = owm.get_current(city,**params)
+            weather_DF.loc[count] = result(*summary)
+            print(f"Processed Record {index} | {city}")
+            count+=1
+        except:
+            print(f"Record {index}: City {city} not found. Skipping...") 
+        time.sleep(1) #1 sec delay between API calls
+    print("-----------------------------\n\
+    Data Retrieval Complete\n\
+    -----------------------------")         
    ```
- * Find the closest city for each of the representational lattude and longitude values using python [citipy](https://pypi.python.org/pypi/citipy) library
+### Visualization 
+
+* Create a series of scatter plots to showcase the following relationships:
+
+  * **Temperature (F) vs. Latitude
   
- 
- 
- 
-Create a Python script to visualize the weather of 500+ cities across the world of varying distance from the equator.
-To accomplish this, we'll be utilizing a [simple Python library](https://pypi.python.org/pypi/citipy), the [OpenWeatherMap API](https://openweathermap.org/api), and a little common sense to create a representative model of weather across world cities.
-
-Firstly create a series of scatter plots to showcase the following relationships:
-
-* Temperature (F) vs. Latitude
-* Humidity (%) vs. Latitude
-* Cloudiness (%) vs. Latitude
-* Wind Speed (mph) vs. Latitude
+  * **Humidity (%) vs. Latitude
+  
+  * **Cloudiness (%) vs. Latitude
+  
+  * **Wind Speed (mph) vs. Latitude
+  
+  
 
 Then run linear regression on each relationship, only this time separating them into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude):
 
