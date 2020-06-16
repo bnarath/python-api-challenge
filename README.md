@@ -51,7 +51,7 @@ But, if pressed, how would you **prove** it?
  * Next, we perform weather check on each city in the list,  using a series of successive API calls to [OpenWeatherMap API](https://openweathermap.org/api) and extract ['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']. This extracted data is kept in a DataFrame.
  
    ``` python
-     #Create a placeholder DF for the extracted data from API calls
+    #Create a placeholder DF for the extracted data from API calls
     weather_DF = pd.DataFrame(columns=['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']) 
 
     #Data to get extracted
