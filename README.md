@@ -1,6 +1,6 @@
 # What's the Weather Like?
 
-## Background
+## Challenge
 
 Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. In this project, we try to answer a fundamental question: "What's the weather like as we approach the equator?"
 
@@ -11,8 +11,25 @@ But, if pressed, how would you **prove** it?
 ![Equator](Images/equatorsign.png)
 
 
-## Tasks
+## Steps
 
+### Retrieve the data
+
+* Latitude values are measured relative to the equator and range from -90° at the South Pole to +90° at the North Pole. Longitude values are measured relative to the prime meridian. They range from -180° when traveling west to 180° when traveling east.Please checkout [geographic coordinate system](http://desktop.arcgis.com/en/arcmap/10.3/guide-books/map-projections/about-geographic-coordinate-systems.htm) for further details.
+
+* Generate a set of representation latitude and longitude values
+  ``` diff python
+  # Range of latitudes and longitudes
+  lat_range = (-90, 90)
+  lng_range = (-180, 180)
+
+  #Create a seed
+  np.random.seed(1000)
+
+  # Create a set of random lat and lng combinations
+  lats = np.random.uniform(lat_range[0], lat_range[1], size=1600)
+  lngs = np.random.uniform(lng_range[0], lng_range[1], size=1600)
+  ```
 Create a Python script to visualize the weather of 500+ cities across the world of varying distance from the equator.
 To accomplish this, we'll be utilizing a [simple Python library](https://pypi.python.org/pypi/citipy), the [OpenWeatherMap API](https://openweathermap.org/api), and a little common sense to create a representative model of weather across world cities.
 
