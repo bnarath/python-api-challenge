@@ -46,7 +46,40 @@ But, if pressed, how would you **prove** it?
         if city not in cities:
             cities.append(city)
     ```
-  Note:- Some latitude, longitude combination will not have nearest city (eg:- in the ocean). Hence, a larger set of lat,long   was kept initially to get more than 500 cities
+    Note:- Some latitude, longitude combination will not have nearest city (eg:- in the ocean). Hence, a larger set of lat,long   was kept initially to get more than 500 cities
+ 
+ * Next, we perform weather check on each city in the list,  using a series of successive API calls to [OpenWeatherMap API](https://openweathermap.org/api) and extract ['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']. This extracted data is kept in a DataFrame
+ 
+   ``` python
+       #Create a placeholder DF for the extracted data from API calls
+      weather_DF = pd.DataFrame(columns=['City','Lat', 'Lng', 'Max Temp', 'Humidity', 'Cloudiness', 'Wind Speed', 'Country', 'Date']) 
+
+      #Data to get extracted
+      summary = ['name', 'coord.lat', 'coord.lon', 'main.temp_max', 'main.humidity', 'clouds.all', 'wind.speed', 'sys.country', 'dt']             
+
+      #Parms to pass to the API call
+      params = {'units': 'imperial',
+                'appid' : weather_api_key}
+
+      #Iteratively call openweathermap api using python wrapper
+      print("Beginning Data Retrieval\n\
+      -----------------------------")
+      count=0 #Successful queries
+      for index, city in enumerate(cities):
+          try:
+              result = owm.get_current(city,**params)
+              weather_DF.loc[count] = result(*summary)
+              print(f"Processed Record {index} | {city}")
+              count+=1
+          except:
+              print(f"Record {index}: City {city} not found. Skipping...") 
+          time.sleep(1) #1 sec delay between API calls
+      print("-----------------------------\n\
+      Data Retrieval Complete\n\
+      -----------------------------")         
+   ```
+ * Find the closest city for each of the representational lattude and longitude values using python [citipy](https://pypi.python.org/pypi/citipy) library
+  
  
  
  
