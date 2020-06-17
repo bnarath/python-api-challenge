@@ -257,7 +257,7 @@ Please refer [WeatherPy.ipynb](CodeBase/WeatherPy.ipynb) and [VacationPy.ipynb](
 
 * Narrow down the DataFrame to find your ideal weather condition. For example:
 
-  * A max temperature lower than 80 degrees but higher than 70.
+  * A max temperature lower than 80 degrees but higher than 72.
 
   * Wind speed less than 10 mph.
 
@@ -272,20 +272,20 @@ Please refer [WeatherPy.ipynb](CodeBase/WeatherPy.ipynb) and [VacationPy.ipynb](
     DF_IDEAL.info()
     
     <class 'pandas.core.frame.DataFrame'>
-    Int64Index: 14 entries, 25 to 536
+    Int64Index: 9 entries, 37 to 536
     Data columns (total 8 columns):
      #   Column      Non-Null Count  Dtype  
     ---  ------      --------------  -----  
-     0   City        14 non-null     object 
-     1   Country     14 non-null     object 
-     2   Lat         14 non-null     float64
-     3   Lng         14 non-null     float64
-     4   Max Temp    14 non-null     float64
-     5   Humidity    14 non-null     float64
-     6   Cloudiness  14 non-null     float64
-     7   Wind Speed  14 non-null     float64
+     0   City        9 non-null      object 
+     1   Country     9 non-null      object 
+     2   Lat         9 non-null      float64
+     3   Lng         9 non-null      float64
+     4   Max Temp    9 non-null      float64
+     5   Humidity    9 non-null      float64
+     6   Cloudiness  9 non-null      float64
+     7   Wind Speed  9 non-null      float64
     dtypes: float64(6), object(2)
-    memory usage: 1008.0+ bytes
+    memory usage: 648.0+ bytes
   
   ```
 ### Finds the most popular hotels in the identified cities
